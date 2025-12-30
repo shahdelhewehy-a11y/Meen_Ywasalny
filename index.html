@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meen Ywasalny - Ride Hailing Platform</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>🚗 Meen Ywasalny</h1>
+            </div>
+            <div class="nav-menu">
+                <button class="btn btn-secondary" id="logoutBtn" style="display: none;">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen active">
+        <div class="container">
+            <div class="login-container">
+                <div class="login-box">
+                    <h2>Welcome to Meen Ywasalny</h2>
+                    <p>Choose your role to continue</p>
+                    
+                    <div class="role-selector">
+                        <button class="role-btn active" data-role="passenger">
+                            <span class="role-icon">👤</span>
+                            <span>Passenger</span>
+                        </button>
+                        <button class="role-btn" data-role="captain">
+                            <span class="role-icon">🚕</span>
+                            <span>Captain</span>
+                        </button>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="loginForm" class="auth-form">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="loginEmail" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="loginPassword" class="form-control" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        <p class="switch-form">Don't have an account? <a href="#" id="showRegister">Register here</a></p>
+                    </form>
+
+                    <!-- Register Form -->
+                    <form id="registerForm" class="auth-form" style="display: none;">
+                        <!-- Passenger Registration -->
+                        <div id="passengerRegisterFields">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" id="regPassFirstName" class="form-control" placeholder="First name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" id="regPassLastName" class="form-control" placeholder="Last name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="regPassEmail" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="regPassPassword" class="form-control" placeholder="Create password" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number (Optional)</label>
+                                <input type="tel" id="regPassPhone" class="form-control" placeholder="01xxxxxxxxx">
+                            </div>
+                        </div>
+
+                        <!-- Captain Registration -->
+                        <div id="captainRegisterFields" style="display: none;">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" id="regCapFirstName" class="form-control" placeholder="First name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" id="regCapLastName" class="form-control" placeholder="Last name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="regCapEmail" class="form-control" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" id="regCapPassword" class="form-control" placeholder="Create password">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number (Optional)</label>
+                                <input type="tel" id="regCapPhone" class="form-control" placeholder="01xxxxxxxxx">
+                            </div>
+                            <div class="form-group">
+                                <label>License Number</label>
+                                <input type="text" id="regCapLicense" class="form-control" placeholder="License number">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Plate Number</label>
+                                    <input type="text" id="regCapPlate" class="form-control" placeholder="ABC123">
+                                </div>
+                                <div class="form-group">
+                                    <label>Vehicle Type</label>
+                                    <select id="regCapVehicleType" class="form-control">
+                                        <option value="Sedan">Sedan</option>
+                                        <option value="SUV">SUV</option>
+                                        <option value="Hatchback">Hatchback</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Vehicle Color</label>
+                                    <input type="text" id="regCapColor" class="form-control" placeholder="Black">
+                                </div>
+                                <div class="form-group">
+                                    <label>Vehicle Model</label>
+                                    <input type="text" id="regCapModel" class="form-control" placeholder="Toyota Corolla">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <p class="switch-form">Already have an account? <a href="#" id="showLogin">Login here</a></p>
+                    </form>
+
+                    <div class="demo-credentials">
+                        <p><strong>Demo Credentials:</strong></p>
+                        <p>Passenger: Bothina.Elhaw@mail.com / p1</p>
+                        <p>Captain: khaled.reda@mail.com / pass123</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Passenger Dashboard -->
+    <div id="passengerScreen" class="screen">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Welcome, <span id="passengerName"></span>!</h2>
+                <p>Where would you like to go today?</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Request Ride Section -->
+                <div class="card">
+                    <h3>🚗 Request a Ride</h3>
+                    <form id="requestRideForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Pickup Latitude</label>
+                                <input type="number" step="0.000001" id="pickupLat" class="form-control" value="30.0330" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Pickup Longitude</label>
+                                <input type="number" step="0.000001" id="pickupLong" class="form-control" value="31.2100" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Dropoff Latitude</label>
+                                <input type="number" step="0.000001" id="dropoffLat" class="form-control" value="30.0444" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Dropoff Longitude</label>
+                                <input type="number" step="0.000001" id="dropoffLong" class="form-control" value="31.2357" required>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" id="findCaptainsBtn">Find Nearby Captains</button>
+                    </form>
+
+                    <div id="captainsList" class="captains-list" style="display: none;">
+                        <h4>Available Captains</h4>
+                        <div id="captainsContainer"></div>
+                    </div>
+                </div>
+
+                <!-- My Rides Section -->
+                <div class="card">
+                    <h3>📋 My Rides</h3>
+                    <div id="passengerRidesContainer">
+                        <p class="loading">Loading your rides...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Section -->
+            <div class="card">
+                <h3>📊 Statistics & Queries</h3>
+                <div class="query-buttons">
+                    <button class="btn btn-secondary btn-sm" id="viewStatsBtn">Platform Statistics</button>
+                    <button class="btn btn-secondary btn-sm" id="viewTopCaptainByRidesBtn">Top Captain (Rides)</button>
+                    <button class="btn btn-secondary btn-sm" id="viewTopCaptainByRatingBtn">Top Captain (Rating)</button>
+                    <button class="btn btn-secondary btn-sm" id="viewLeastRidesCaptainsBtn">Captains with Least Rides</button>
+                    <button class="btn btn-secondary btn-sm" id="viewRideDurationsBtn">All Ride Durations</button>
+                    <button class="btn btn-secondary btn-sm" id="viewCaptainDurationsBtn">Captain Total Durations</button>
+                </div>
+                <div id="statsContainer" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Captain Dashboard -->
+    <div id="captainScreen" class="screen">
+        <div class="container">
+            <div class="dashboard-header">
+                <h2>Captain Dashboard - <span id="captainName"></span></h2>
+                <p>Status: <span id="captainStatus" class="status-badge"></span></p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- My Rides Section -->
+                <div class="card">
+                    <h3>🚕 My Rides</h3>
+                    <div id="captainRidesContainer">
+                        <p class="loading">Loading your rides...</p>
+                    </div>
+                </div>
+
+                <!-- Statistics Section -->
+                <div class="card">
+                    <h3>📊 My Statistics</h3>
+                    <div id="captainStatsContainer">
+                        <p class="loading">Loading statistics...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Invoices Section -->
+            <div class="card">
+                <h3>💰 System Queries</h3>
+                <div class="query-buttons">
+                    <button class="btn btn-secondary btn-sm" id="viewInvoicesBtn">All Invoices</button>
+                    <button class="btn btn-secondary btn-sm" id="viewInactiveCaptainsBtn">Check Inactive Captains</button>
+                    <button class="btn btn-secondary btn-sm" id="tryCallPassengerBtn">Try Call Passenger</button>
+                </div>
+                <div id="invoicesContainer" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rating Modal -->
+    <div id="ratingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Rate Your Ride</h3>
+            <div class="rating-stars">
+                <span class="star" data-rating="1">⭐</span>
+                <span class="star" data-rating="2">⭐</span>
+                <span class="star" data-rating="3">⭐</span>
+                <span class="star" data-rating="4">⭐</span>
+                <span class="star" data-rating="5">⭐</span>
+            </div>
+            <button class="btn btn-primary" id="submitRatingBtn">Submit Rating</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
