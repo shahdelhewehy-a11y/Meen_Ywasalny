@@ -148,6 +148,3 @@ meen-ywasalny/
 ## 📄 License
 
 -This project was developed as a final university project for educational purposes.
-
-
-This project
