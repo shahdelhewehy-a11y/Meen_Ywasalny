@@ -150,4 +150,4 @@ meen-ywasalny/
 -This project was developed as a final university project for educational purposes.
 
 
-This project is intended for educational and academic use only.
+This project is intended for educatio
